@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var paises = $("#paises");
 
+    paises.append('<option value="0">Seleccione un pais</option>');
+
     $.ajax({
         url: 'https://corona.lmao.ninja/v2/countries',
         type: 'GET',

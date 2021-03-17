@@ -19,7 +19,9 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/d33d26011d.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
+            integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
+            crossorigin="anonymous"></script>
     <title>Covid Center - Diagnostico de COVID y estadisticas en tiempo real</title>
 </head>
 <body>
@@ -39,8 +41,8 @@
     <section class="jumbotron text-center">
         <div class="container">
             <div class="animate__animated animate__zoomIn">
-            <h1><i class="fas fa-virus fa-3x"></i></h1>
-            <h1>COVID CENTER</h1>
+                <h1><i class="fas fa-virus fa-3x"></i></h1>
+                <h1>COVID CENTER</h1>
             </div>
             <p class="lead text-muted">Centro de auto diagnostico de COVID y estadisticas en tiempo real</p>
             <p>
@@ -124,23 +126,25 @@
                 <div style="margin-bottom: 10px" class="text-center">
                     <h2>Estadisticas Covid</h2>
                 </div>
-                <div class="row">
-                    <div  style="margin-bottom: 30px" class="col-md-3">
-                        <div class="form-group">
-                            <label>Pais</label>
-                            <select id="paises" class="form-control"></select>
+                <div style="margin: 30px" class="row alert alert-secondary" role="alert">
+                    <div style="margin-top: 20px" class="col-md-6"  >
+                        <div >
+                            <div class="form-group">
+                                <select id="paises" class="form-control"></select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class=" col-sm-2  text-center" style="margin-bottom: 50px">
-                    <h5 id="fecha"></h5>
+                    <div  style="margin-top: 20px" class=" col-md-2  text-center">
+                        <h5 id="fecha"></h5>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3">
                         <div class="card mb-4 shadow-sm text-center">
-                            <div class="card-header bg-info text-white" >
-                                <p class="animate__animated animate__pulse animate__infinite"><i class="fas fa-viruses  fa-3x"></i></p>
-                                <h5  >Contagiados</h5>
+                            <div class="card-header bg-info text-white">
+                                <p class="animate__animated animate__pulse animate__infinite"><i
+                                        class="fas fa-viruses  fa-3x"></i></p>
+                                <h5>Contagiados</h5>
                             </div>
                             <div style="height: 120px" class="card-body">
                                 <h1 id="contagiados"></h1>
@@ -150,8 +154,9 @@
                     <div class="col-md-3">
                         <div class="card mb-4 shadow-sm text-center">
                             <div class="card-header bg-danger text-white">
-                                <p class="animate__animated animate__pulse animate__infinite"><i class="fas fa-skull fa-3x"></i></p>
-                                <h5 >Muertes</h5>
+                                <p class="animate__animated animate__pulse animate__infinite"><i
+                                        class="fas fa-skull fa-3x"></i></p>
+                                <h5>Muertes</h5>
                             </div>
                             <div style="height: 120px" class="card-body">
                                 <h1 id="muertes"></h1>
@@ -161,7 +166,8 @@
                     <div class="col-md-3">
                         <div class="card mb-4 shadow-sm text-center">
                             <div class="card-header bg-success text-white">
-                                <p class="animate__animated animate__pulse animate__infinite"><i class="fas fa-heart fa-3x"></i></p>
+                                <p class="animate__animated animate__pulse animate__infinite"><i
+                                        class="fas fa-heart fa-3x"></i></p>
                                 <h5>Recuperados</h5>
                             </div>
                             <div style="height: 120px" class="card-body">
@@ -172,7 +178,8 @@
                     <div class="col-md-3">
                         <div class="card mb-4 shadow-sm text-center">
                             <div class="card-header bg-warning text-white">
-                                <p class="animate__animated animate__pulse animate__infinite"><i class="fas fa-users fa-3x"></i></p>
+                                <p class="animate__animated animate__pulse animate__infinite"><i
+                                        class="fas fa-users fa-3x"></i></p>
                                 <h5>1 caso por cada</h5>
                             </div>
                             <div style="height: 120px" class="card-body">
