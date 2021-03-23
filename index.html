@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"
             integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ=="
             crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.6/dist/sweetalert2.all.min.js"></script>
     <title>Covid Center - Diagnostico de COVID y estadisticas en tiempo real</title>
 </head>
 <body>
@@ -46,9 +47,27 @@
             </div>
             <p class="lead text-muted">Centro de auto diagnostico de COVID y estadisticas en tiempo real</p>
             <p>
-                <a href="#" class="btn btn-primary my-2"><i class="fas fa-file-medical-alt"></i> Auto diagnostico</a>
+                <a href="#autodiagnostico" class="btn btn-primary my-2"><i class="fas fa-file-medical-alt"></i> Auto diagnostico</a>
                 <a href="#estadisticas" class="btn btn-primary my-2"><i class="fas fa-chart-pie"></i> Estadisticas</a>
             </p>
+        </div>
+    </section>
+
+    <section class="jumbotron">
+        <div id="autodiagnostico" class="container">
+            <div style="margin-bottom: 30px;" class="row">
+                <div id="pregunta_texto" class="col-md-12 text-center">
+                </div>
+            </div>
+            <div  class="row">
+                <div class="col-md-6 text-right">
+
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_si">SI</button>
+                </div>
+                <div class="col-md-6 text-left">
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_no" disabled>NO</button>
+                </div>
+            </div>
         </div>
     </section>
 

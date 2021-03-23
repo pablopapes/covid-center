@@ -7,12 +7,19 @@ function Diagnostico() {
     this.sumatoria = 0;
     this.resultado = function () {
         let resultado = "";
+        let icono = "";
         if (this.sumatoria < 8) {
             resultado = "NO tienes sintomas de covid";
+            icono = "success";
         } else {
             resultado = "Puede que tengas sintomas de covid";
+            icono = "error";
         }
-        alert(resultado);
+        Swal.fire({
+            icon: icono,
+            title: 'Diagnostico',
+            text: resultado,
+        })
     };
 
     this.sumarPuntos = function (puntos) {
@@ -24,9 +31,8 @@ function Diagnostico() {
 function OrdenarPreguntas(a, b) {
 
     const preguntaA = a.puntos;
-    console.log(preguntaA)
     const preguntaB = b.puntos;
-    console.log(preguntaA)
+
 
     let comparar = 0;
 
@@ -38,8 +44,44 @@ function OrdenarPreguntas(a, b) {
     return comparar;
 }
 
+function CambiarPregunta() {
+    let pregunta_div = document.getElementById("pregunta_texto");
+
+    pregunta_div.removeChild(pregunta_div.firstChild);
+
+    var pregunta_texto= document.createElement('H1');
+
+    pregunta_texto.innerHTML = arraydePreguntas[indice_pregunta].descripcion;
+
+    pregunta_div.appendChild(pregunta_texto)
+
+
+    if ( indice_pregunta < arraydePreguntas.length - 1) {
+        indice_pregunta = indice_pregunta + 1;
+    }
+    else {
+        diagnostico.resultado();
+        indice_pregunta = 0;
+        document.getElementById("pregunta_boton_no").disabled = true;
+        comenzarTest();
+    }
+}
+
+function comenzarTest() {
+    let pregunta_div = document.getElementById("pregunta_texto");
+
+    pregunta_div.removeChild(pregunta_div.firstChild);
+
+    var pregunta_texto= document.createElement('H1');
+
+    pregunta_texto.innerHTML = "¿ Comenzar el Test ?"
+
+    pregunta_div.appendChild(pregunta_texto)
+}
+
+// VARS
 let arraydePreguntas = [];
-let sumatoria = 0;
+let indice_pregunta= 0;
 
 
 let Listadopreguntas = [
@@ -90,23 +132,38 @@ let Listadopreguntas = [
 ];
 
 
-Listadopreguntas.forEach(function (value, index, array) {
-    let pregunta = new Pregunta(value.pregunta, value.puntos);
-    arraydePreguntas.push(pregunta);
+$(document).ready(function(){
+
+    comenzarTest();
+
+    Listadopreguntas.forEach(function (value, index, array) {
+        let pregunta = new Pregunta(value.pregunta, value.puntos);
+        arraydePreguntas.push(pregunta);
+
+    });
+
+    arraydePreguntas.sort(OrdenarPreguntas);
+
+    diagnostico = new Diagnostico();
 
 });
 
-arraydePreguntas.sort(OrdenarPreguntas);
+$("#pregunta_boton_si").click((e) => {
 
-diagnostico = new Diagnostico(0);
-
-arraydePreguntas.forEach(function (value, index, array) {
-
-    let respuesta = prompt(value.descripcion);
-    if (respuesta.toUpperCase() === "SI") {
-        diagnostico.sumarPuntos(value.puntos);
+    if( document.getElementById("pregunta_boton_no").disabled) {
+        document.getElementById("pregunta_boton_no").disabled = false;
+        CambiarPregunta();
     }
+    else {
+        CambiarPregunta();
+        diagnostico.sumarPuntos(arraydePreguntas[indice_pregunta].puntos);
+    }
+
 });
 
+$("#pregunta_boton_no").click((e) => {
 
-diagnostico.resultado();
+    CambiarPregunta();
+
+});
+
