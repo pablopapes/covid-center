@@ -5,6 +5,15 @@ class DiagnosticoStorage {
     }
 }
 
+class PersonaStorage {
+    constructor(obj) {
+        this.nombre = obj.nombre;
+        this.telefono = obj.telefono;
+        this.mail = obj.mail;
+    }
+}
+
+
 
 function Pregunta(descripcion, puntos) {
     this.descripcion = descripcion;
@@ -47,10 +56,6 @@ function Diagnostico() {
 
 
 function getDiagnosticos() {
-    let diagnosticos_div = document.getElementById("diagnosticos");
-
-    var diagnostico_texto = document.createElement('div');
-
 
     const listaDiagnosticos = JSON.parse(localStorage.getItem("datos"));
     let arrayDiagnosticos = [];
@@ -87,13 +92,13 @@ function getDiagnosticos() {
                     '</div>';
             }
 
-            diagnosticos_div.appendChild(diagnostico_texto);
+            $("#diagnosticos").append(diagnostico_texto);
         }
     }
 
 }
 
-function setDiagnostico(texto, diagnostico, indice) {
+function setDiagnostico(texto, diagnostico) {
 
     const listaDiagnosticos = JSON.parse(localStorage.getItem("datos"));
     let diagObj = [];
@@ -109,11 +114,9 @@ function setDiagnostico(texto, diagnostico, indice) {
     localStorage.setItem('datos', JSON.stringify(diagObj));
 }
 
+
 function clearDiagnosticoDiv() {
-    let diagnosticos_div = document.getElementById("diagnosticos");
-    while (diagnosticos_div.firstChild) {
-        diagnosticos_div.removeChild(diagnosticos_div.firstChild);
-    }
+    $("#diagnosticos").empty();
 }
 
 
@@ -134,15 +137,10 @@ function OrdenarPreguntas(a, b) {
 }
 
 function CambiarPregunta() {
-    let pregunta_div = document.getElementById("pregunta_texto");
 
-    pregunta_div.removeChild(pregunta_div.firstChild);
+    $("#pregunta_texto").empty();
 
-    var pregunta_texto = document.createElement('H1');
-
-    pregunta_texto.innerHTML = arraydePreguntas[indice_pregunta].descripcion;
-
-    pregunta_div.appendChild(pregunta_texto)
+    $("#pregunta_texto").append("<h1>" + arraydePreguntas[indice_pregunta].descripcion + "</h1>")
 
 
     if (indice_pregunta < arraydePreguntas.length - 1) {
@@ -150,21 +148,16 @@ function CambiarPregunta() {
     } else {
         diagnostico.resultado();
         indice_pregunta = 0;
-        document.getElementById("pregunta_boton_no").disabled = true;
+        $("#pregunta_boton_no").prop("disabled",true);
         comenzarTest();
     }
 }
 
 function comenzarTest() {
-    let pregunta_div = document.getElementById("pregunta_texto");
 
-    pregunta_div.removeChild(pregunta_div.firstChild);
+    $("#pregunta_texto").empty();
 
-    var pregunta_texto = document.createElement('H1');
-
-    pregunta_texto.innerHTML = "¿ Comenzar el Test ?"
-
-    pregunta_div.appendChild(pregunta_texto)
+    $("#pregunta_texto").append("<h1>¿ Comenzar el Test ?</h1>")
 }
 
 // VARS
@@ -238,9 +231,9 @@ $(document).ready(function () {
 
 $("#pregunta_boton_si").click((e) => {
 
-    if (document.getElementById("pregunta_boton_no").disabled) {
+    if ($("#pregunta_boton_no").prop('disabled')) {
         diagnostico = new Diagnostico();
-        document.getElementById("pregunta_boton_no").disabled = false;
+        $("#pregunta_boton_no").prop("disabled",false);
         CambiarPregunta();
     } else {
         CambiarPregunta();
@@ -250,8 +243,19 @@ $("#pregunta_boton_si").click((e) => {
 });
 
 $("#pregunta_boton_no").click((e) => {
-
     CambiarPregunta();
-
 });
 
+
+$( "form#userForm" ).submit(function( event ) {
+
+    var values = {};
+    $.each($('#userForm').serializeArray(), function(i, field) {
+        values[field.name] = field.value;
+    });
+
+    let persona = new PersonaStorage(values);
+
+    localStorage.setItem('usuario', JSON.stringify(persona));
+
+});
