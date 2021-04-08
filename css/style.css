@@ -78,7 +78,7 @@ header .overlay {
 
 @media (pointer: coarse) and (hover: none) {
   header {
-    background: url("../assets/covid.png") black no-repeat center center scroll;
+    background: url("../assets/covid.jpg") black no-repeat center center scroll;
   }
   header video {
     display: none;
