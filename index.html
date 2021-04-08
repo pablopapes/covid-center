@@ -26,35 +26,42 @@
 </head>
 <body>
 <header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <h1><i class="fas fa-virus"></i></h1>
-                <strong>Covid Center </strong>
-            </a>
+    <div class="overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+        <source src="assets/covid_background.mp4" type="video/mp4">
+    </video>
+    <div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <h1><i class="fas fa-virus"></i></h1>
+                    <strong>Covid Center </strong>
+                </a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i
+                        class="fas fa-user"></i> Ingresar
+                </button>
+            </div>
         </div>
-        <div class="navbar-nav ml-auto">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-user"></i> Ingresar</button>
+    </div>
+    <div class="container h-100">
+        <div class="d-flex h-100 text-center align-items-center">
+            <div class="w-100 text-white">
+                <h1 class="display-3">COVID CENTER</h1>
+                <p class="lead mb-0">Centro de auto diagnostico de COVID y estadisticas en tiempo real</p>
+                <p style="margin-top: 50px;">
+                    <a href="#autodiagnostico" class="btn btn-primary my-2"><i class="fas fa-file-medical-alt"></i> Auto
+                        diagnostico</a>
+                    <a href="#estadisticas" class="btn btn-primary my-2"><i class="fas fa-chart-pie"></i>
+                        Estadisticas</a>
+                </p>
+            </div>
         </div>
-
     </div>
 </header>
 
 <main role="main">
-
-    <section class="jumbotron text-center">
-        <div class="container">
-            <div class="animate__animated animate__zoomIn">
-                <h1><i class="fas fa-virus fa-3x"></i></h1>
-                <h1>COVID CENTER</h1>
-            </div>
-            <p class="lead text-muted">Centro de auto diagnostico de COVID y estadisticas en tiempo real</p>
-            <p>
-                <a href="#autodiagnostico" class="btn btn-primary my-2"><i class="fas fa-file-medical-alt"></i> Auto diagnostico</a>
-                <a href="#estadisticas" class="btn btn-primary my-2"><i class="fas fa-chart-pie"></i> Estadisticas</a>
-            </p>
-        </div>
-    </section>
 
     <section class="jumbotron">
         <div id="autodiagnostico" class="container">
@@ -62,17 +69,20 @@
                 <div id="pregunta_texto" class="col-md-12 text-center">
                 </div>
             </div>
-            <div  class="row">
+            <div class="row">
                 <div class="col-md-6 text-right">
 
-                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_si">SI</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_si">SI
+                    </button>
                 </div>
                 <div class="col-md-6 text-left">
-                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_no" disabled>NO</button>
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_no"
+                            disabled>NO
+                    </button>
                 </div>
             </div>
         </div>
-        <div class ="row" style="margin-top: 30px;" id="diagnosticos">
+        <div class="row" style="margin-top: 30px;" id="diagnosticos">
         </div>
     </section>
 
@@ -151,14 +161,14 @@
                     <h2>Estadisticas Covid</h2>
                 </div>
                 <div style="margin: 30px" class="row alert alert-secondary" role="alert">
-                    <div style="margin-top: 20px" class="col-md-6"  >
-                        <div >
+                    <div style="margin-top: 20px" class="col-md-6">
+                        <div>
                             <div class="form-group">
                                 <select id="paises" class="form-control"></select>
                             </div>
                         </div>
                     </div>
-                    <div  style="margin-top: 20px" class=" col-md-2  text-center">
+                    <div style="margin-top: 20px" class=" col-md-2  text-center">
                         <h5 id="fecha"></h5>
                     </div>
                 </div>
@@ -227,7 +237,6 @@
 </footer>
 
 
-
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -239,10 +248,11 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form id="userForm" >
+                <form id="userForm">
                     <div class="form-group">
                         <label for="nameInput1">Nombre y Apellido</label>
-                        <input name="nombre" type="text" class="form-control" id="nameInput1" aria-describedby="nameHelp">
+                        <input name="nombre" type="text" class="form-control" id="nameInput1"
+                               aria-describedby="nameHelp">
                     </div>
                     <div class="form-group">
                         <label for="telefonoInput1">Telefono</label>
@@ -250,7 +260,7 @@
                     </div>
                     <div class="form-group">
                         <label for="EmailInput1">Email</label>
-                        <input name="mail" type="email" class="form-control" id="EmailInput1" >
+                        <input name="mail" type="email" class="form-control" id="EmailInput1">
                     </div>
                     <input type="submit" class="btn btn-primary"></input>
                 </form>
