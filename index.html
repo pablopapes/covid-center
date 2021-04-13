@@ -82,8 +82,14 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="margin-top: 30px;" id="diagnosticos">
+        <div class="row">
+            <div class="col-md-3" style="margin-top: 50px;">
+                <button type="button" class="btn btn-outline-secondary btn-lg btn-block" id="ocultar_diagnostico_boton"> Ocultar/Mostrar Diagnostico
+                </button>
+
+            </div>
         </div>
+        <div class="row" style="margin-top: 30px;" id="diagnosticos"></div>
     </section>
 
     <section>
@@ -93,7 +99,7 @@
                     <h2>¿Como prevenir el Contagio de COVID?</h2>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div style="display:none;" class="col-md-4" id="manosCard">
                         <div class="card mb-4 shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-hands-wash fa-6x"></i></p>
                             <div class="card-body">
@@ -102,7 +108,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div style="display:none;" class=" col-md-4" id="mascarillaCard">
                         <div class="card mb-4 shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-head-side-mask fa-6x"></i>
                             </p>
@@ -111,7 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div style="display:none;" class=" col-md-4" id="copaCard">
                         <div class="card mb-4 shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-wine-glass-alt fa-6x"></i>
                             </p>
@@ -120,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div style="display:none;" class=" col-md-4" id="distanciaCard">
                         <div class="card mb-4 shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-people-arrows fa-6x"></i>
                             </p>
@@ -130,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div style="display:none;" class="col-md-4" id="estornudoCard">
                         <div class="card mb-4 shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-head-side-cough fa-6x"></i>
                             </p>
@@ -140,7 +146,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div style="display:none;" class=" col-md-4" id="casaCard">
                         <div class="card mb-4  shadow-sm">
                             <p style="margin-top: 50px" class="text-center"><i class="fas fa-house-user fa-6x"></i></p>
                             <div class="card-body">

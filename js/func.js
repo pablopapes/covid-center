@@ -74,7 +74,7 @@ function getDiagnosticos() {
 
             if (diag.diagnostico === "NEGATIVO") {
                 diagnostico_texto.innerHTML =
-                    '<div class="card text-white bg-success mb-3" style="margin: 5px">\n' +
+                    '<div  class="card text-white bg-success mb-3" style="margin: 5px">\n' +
                     '  <div class="card-header">Diagnostico Nº ' + indice + '</div>\n' +
                     '  <div class="card-body">\n' +
                     '    <h5 class="card-title">' + diag.diagnostico + '</h5>\n' +
@@ -83,7 +83,7 @@ function getDiagnosticos() {
                     '</div>';
             } else {
                 diagnostico_texto.innerHTML =
-                    '<div class="card text-white bg-danger mb-3" style="margin: 5px">\n' +
+                    '<div  class="card text-white bg-danger mb-3" style="margin: 5px">\n' +
                     '  <div class="card-header">Diagnostico Nº ' + indice + '</div>\n' +
                     '  <div class="card-body">\n' +
                     '    <h5 class="card-title">' + diag.diagnostico + '</h5>\n' +
@@ -91,7 +91,6 @@ function getDiagnosticos() {
                     '  </div>\n' +
                     '</div>';
             }
-
             $("#diagnosticos").append(diagnostico_texto);
         }
     }
@@ -226,8 +225,18 @@ $(document).ready(function () {
 
     arraydePreguntas.sort(OrdenarPreguntas);
 
+    animacionesCards()
+
 
 });
+
+function animacionesCards() {
+    cardsId = ['manosCard','mascarillaCard','copaCard','distanciaCard','estornudoCard','casaCard']
+
+    for ( const cardId of cardsId) {
+        $("#" + cardId).fadeIn(1000);
+    }
+}
 
 $("#pregunta_boton_si").click((e) => {
 
@@ -244,6 +253,10 @@ $("#pregunta_boton_si").click((e) => {
 
 $("#pregunta_boton_no").click((e) => {
     CambiarPregunta();
+});
+
+$("#ocultar_diagnostico_boton").click((e) => {
+    $("#diagnosticos").toggle(500);
 });
 
 
