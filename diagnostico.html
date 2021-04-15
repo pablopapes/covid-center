@@ -32,10 +32,10 @@
     </video>
     <div>
         <div class="navbar navbar-expand-lg navbar-dark shadow-sm ">
-                <a href="index.html" class="navbar-brand d-flex align-items-center" style="margin-right: 50px">
-                    <h1><i class="fas fa-virus"></i></h1>
-                    <strong>Covid Center </strong>
-                </a>
+            <a href="index.html" class="navbar-brand d-flex align-items-center" style="margin-right: 50px">
+                <h1><i class="fas fa-virus"></i></h1>
+                <strong>Covid Center </strong>
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -58,14 +58,7 @@
     <div class="container h-100">
         <div class="d-flex h-100 text-center align-items-center">
             <div class="w-100 text-white">
-                <h1 class="display-3">COVID CENTER</h1>
-                <p class="lead mb-0">Centro de auto diagnostico de COVID y estadisticas en tiempo real</p>
-                <p style="margin-top: 50px;">
-                    <a href="diagnostico.html" class="btn btn-primary my-2"><i class="fas fa-file-medical-alt"></i> Auto
-                        diagnostico</a>
-                    <a href="estadisticas.html" class="btn btn-primary my-2"><i class="fas fa-chart-pie"></i>
-                        Estadisticas</a>
-                </p>
+                <h3 class="display-3">Auto Diagnostico</h3>
             </div>
         </div>
     </div>
@@ -73,74 +66,35 @@
 
 <main role="main">
 
-
-    <section>
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div style="margin-bottom: 50px" class="text-center">
-                    <h2>¿Como prevenir el Contagio de COVID?</h2>
+    <section class="jumbotron">
+        <div id="autodiagnostico" class="container">
+            <div style="margin-bottom: 30px;" class="row">
+                <div id="pregunta_texto" class="col-md-12 text-center">
                 </div>
-                <div class="row">
-                    <div style="display:none;" class="col-md-4" id="manosCard">
-                        <div class="card mb-4 shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-hands-wash fa-6x"></i></p>
-                            <div class="card-body">
-                                <p class="card-text">Lavarse frecuentemente las manos con agua y jabón o soluciones
-                                    alcohólicas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:none;" class=" col-md-4" id="mascarillaCard">
-                        <div class="card mb-4 shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-head-side-mask fa-6x"></i>
-                            </p>
-                            <div class="card-body">
-                                <p class="card-text">Llevar siempre la mascarilla en lugares publicos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:none;" class=" col-md-4" id="copaCard">
-                        <div class="card mb-4 shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-wine-glass-alt fa-6x"></i>
-                            </p>
-                            <div class="card-body">
-                                <p class="card-text">Evitar compartir comida, utensilios u otros objetos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:none;" class=" col-md-4" id="distanciaCard">
-                        <div class="card mb-4 shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-people-arrows fa-6x"></i>
-                            </p>
-                            <div class="card-body">
-                                <p class="card-text">Mantén una distancia de seguridad con personas en espacios
-                                    publicos</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:none;" class="col-md-4" id="estornudoCard">
-                        <div class="card mb-4 shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-head-side-cough fa-6x"></i>
-                            </p>
-                            <div class="card-body">
-                                <p class="card-text">Cuando estornudes, cúbrete la nariz y la boca con el codo o con un
-                                    pañuelo.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div style="display:none;" class=" col-md-4" id="casaCard">
-                        <div class="card mb-4  shadow-sm">
-                            <p style="margin-top: 50px" class="text-center"><i class="fas fa-house-user fa-6x"></i></p>
-                            <div class="card-body">
-                                <p class="card-text">Si no te encuentras bien, quédate en casa y busca atención
-                                    médica.</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-right">
+
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_si">SI
+                    </button>
+                </div>
+                <div class="col-md-6 text-left">
+                    <button type="button" class="btn btn-outline-primary btn-lg btn-block" id="pregunta_boton_no"
+                            disabled>NO
+                    </button>
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-3" style="margin-top: 50px;">
+                <button type="button" class="btn btn-outline-secondary btn-lg btn-block" id="ocultar_diagnostico_boton"> Ocultar/Mostrar Diagnostico
+                </button>
+
+            </div>
+        </div>
+        <div class="row" style="margin-top: 30px;" id="diagnosticos"></div>
     </section>
+
 
 </main>
 
