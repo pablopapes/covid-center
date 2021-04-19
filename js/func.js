@@ -14,7 +14,6 @@ class PersonaStorage {
 }
 
 
-
 function Pregunta(descripcion, puntos) {
     this.descripcion = descripcion;
     this.puntos = puntos;
@@ -147,7 +146,7 @@ function CambiarPregunta() {
     } else {
         diagnostico.resultado();
         indice_pregunta = 0;
-        $("#pregunta_boton_no").prop("disabled",true);
+        $("#pregunta_boton_no").prop("disabled", true);
         comenzarTest();
     }
 }
@@ -231,9 +230,9 @@ $(document).ready(function () {
 });
 
 function animacionesCards() {
-    cardsId = ['manosCard','mascarillaCard','copaCard','distanciaCard','estornudoCard','casaCard']
+    cardsId = ['manosCard', 'mascarillaCard', 'copaCard', 'distanciaCard', 'estornudoCard', 'casaCard']
 
-    for ( const cardId of cardsId) {
+    for (const cardId of cardsId) {
         $("#" + cardId).fadeIn(1000);
     }
 }
@@ -242,7 +241,7 @@ $("#pregunta_boton_si").click((e) => {
 
     if ($("#pregunta_boton_no").prop('disabled')) {
         diagnostico = new Diagnostico();
-        $("#pregunta_boton_no").prop("disabled",false);
+        $("#pregunta_boton_no").prop("disabled", false);
         CambiarPregunta();
     } else {
         CambiarPregunta();
@@ -255,15 +254,16 @@ $("#pregunta_boton_no").click((e) => {
     CambiarPregunta();
 });
 
+
 $("#ocultar_diagnostico_boton").click((e) => {
     $("#diagnosticos").toggle(500);
 });
 
 
-$( "form#userForm" ).submit(function( event ) {
+$("form#userForm").submit(function (event) {
 
     var values = {};
-    $.each($('#userForm').serializeArray(), function(i, field) {
+    $.each($('#userForm').serializeArray(), function (i, field) {
         values[field.name] = field.value;
     });
 
