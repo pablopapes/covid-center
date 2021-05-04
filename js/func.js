@@ -57,9 +57,10 @@ function Diagnostico() {
 function getDiagnosticos() {
 
     const listaDiagnosticos = JSON.parse(localStorage.getItem("datos"));
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
     let arrayDiagnosticos = [];
 
-    if (listaDiagnosticos != null) {
+    if (listaDiagnosticos != null && usuario != null) {
 
 
         for (const obj of listaDiagnosticos) {
@@ -158,6 +159,25 @@ function comenzarTest() {
     $("#pregunta_texto").append("<h1>¿ Comenzar el Test ?</h1>")
 }
 
+function login() {
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if ( usuario != null) {
+
+        $("#ingreso").hide();
+
+       let usuario_obj = new PersonaStorage(usuario);
+
+        var usuario_texto = document.createElement('div');
+
+        usuario_texto.innerHTML =
+            '<li class="nav-item active badge bg-secondary">\n' +
+            '  <a class="nav-link" href="#">Bienvenido , ' + usuario_obj.nombre + ' </a>\n' +
+            '</li>';
+
+        $('#login').append(usuario_texto);
+    }
+}
+
 // VARS
 let arraydePreguntas = [];
 let indice_pregunta = 0;
@@ -215,6 +235,7 @@ $(document).ready(function () {
 
     getDiagnosticos();
     comenzarTest();
+    login();
 
     Listadopreguntas.forEach(function (value, index, array) {
         let pregunta = new Pregunta(value.pregunta, value.puntos);
@@ -256,7 +277,19 @@ $("#pregunta_boton_no").click((e) => {
 
 
 $("#ocultar_diagnostico_boton").click((e) => {
-    $("#diagnosticos").toggle(500);
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if( usuario != null)
+    {
+        $("#diagnosticos").toggle(500)
+    }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: 'Ingresar',
+            text: "Para visualizar los resultados debe ingresar sus datos en el sistema",
+        })
+    }
+;
 });
 
 
